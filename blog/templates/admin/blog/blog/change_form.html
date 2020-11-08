@@ -1,0 +1,17 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+
+{% block object-tools-items %}
+    {% if original.pk %} 
+    <li>
+    <a href="{% url 'driveremail_test' original.pk %}" >{% trans "Test email" %} </a>
+    </li>
+    <li>
+    <a href="{% url 'driveremail_preview' original.pk %}" target="_blank">{% trans "Preview" %} </a>
+	
+    </li>
+  {% endif %}  
+    {{ block.super }}
+{% endblock %}
+
+{% comment %} {% url 'ddpemail_preview' original.pk %}?lang=en {% endcomment %}

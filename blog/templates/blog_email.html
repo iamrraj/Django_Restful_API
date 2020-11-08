@@ -1,0 +1,231 @@
+{% load static %} {% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Font Awesome -->
+    {% comment %} <link rel="stylesheet" href="{% static 'css/style.css' %}" /> {% endcomment %}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+    .body_tag {
+  margin: 0 auto;
+  max-width: 750px;
+  margin-top: 40px;
+}
+.logo1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.weloce {
+  font-weight: bold;
+  font-size: 22px;
+}
+strong {
+  font-weight: bold;
+}
+.weloce_title {
+  font-weight: 100;
+  font-size: 16.5px;
+  margin-top: -15px;
+  padding-left: 30px;
+  margin-bottom: -40px;
+}
+.img {
+  max-width: 100%;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+.header {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: -10px;
+}
+.title {
+  font-size: 30px;
+  margin-bottom: -10px;
+  margin-top: -10px;
+}
+.user_don {
+  font-size: 19px;
+}
+.body_text {
+  font-size: 18px;
+}
+.btn_tag {
+  padding: 10px;
+  border: 2px solid orange;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.fa-faceook {
+  padding: 15px;
+  height: 15px;
+  width: 15px;
+  color: white;
+  border-radius: 50%;
+  background: gray;
+}
+.fa-linkedin {
+  padding: 15px;
+  height: 15px;
+
+  color: white;
+  border-radius: 50%;
+  background: gray;
+}
+.fa-twiter {
+  padding: 15px;
+  height: 15px;
+
+  color: white;
+  border-radius: 50%;
+  background: gray;
+}
+
+.row1 {
+  width: 100%;
+}
+.col1 {
+  width: 60%;
+}
+.col-sm-5 {
+  width: 30%;
+}
+#don {
+  max-width: 600px;
+}
+.down_text {
+  text-align: center;
+  font-size: 17px;
+  color: white;
+}
+.a {
+  color: black;
+  font-weight: bold;
+}
+
+    
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <div class="body_tag">
+        <img src="https://i.imgur.com/v7Or56c.png " alt="Logo" class="logo1" />
+
+        <p class="weloce">Hey, {{author}} .!!</p>
+        <p class="weloce_title">
+          We kindly inform you that your post
+          <strong> "{{ title }}" </strong> is approved from admin and now you
+          can see your post on our website also you can share your post link to
+          your social media by click on the social media icon or you can copy
+          link by click on the title.
+        </p>
+        <div
+          style="margin-top: -15px; background-color: white; padding: 30px;"
+        >
+          <h3 style="opacity: 0.7;" class="header">TUTORIALS</h3>
+
+          <hr style="border: 1px dashed black; opacity: 0.2;" />
+          <br />
+          <a href="# " id="a" style="color: black">
+            <h1 style="text-align: center;" class="title">{{ title }}</h1></a
+          >
+          <br />
+          <p style="text-align: center; opacity: 0.7; margin-top: -10px" class="user_don">
+           <i class="fa"> &#xf073;  </i> {{ publish }} &nbsp;
+            <i class="fa">&#xf2be;  </i> {{ author }} &nbsp;
+         <i class="fa">&#xf017; </i> {% if read_time|time:"i" <= "01"%}
+            < 1 minutes {% else %} {{ read_time|time:"i"}} Minutes Read 
+            {% endif %} &nbsp; &nbsp; <i class="fa">&#xf0e6;</a>
+            0 Comments &nbsp; &#xf06e; {{ view }} Views
+          </p>
+
+          <img
+            src="{% if image.url %}{{ image.url }} {% else %} https://www.belightsoft.com/products/imagetricks/img/intro-video-poster@2x.jpg {% endif %}"
+            alt="{{ title }}"
+            class="img"
+          />
+
+          <br />
+          <p class="body_text">{{ body }}</p>
+
+          <br />
+           <p class="body_text"> {% if schedule  %}  Your Post is Scheduled by <strong>{{ schedule }} </strong>{% else %} {% endif %} </p>
+
+          <p style="font-size: 25px; text-align: center;">
+            <a href="# " style="color: orange;">
+              <strong>READ MORE</strong>
+            </a>
+          </p>
+          <hr style="border: 1px dashed black; opacity: 0.2;" />
+          <br />
+          <p>
+            {% comment %} {% for tag in tags.all %}
+            <button class="btn btn_tag" style="background: orange;">
+              <a href="# " style="color: black" >#{{ tag.name}}</a>
+            </button>
+            {% endfor %} {% endcomment %}
+
+            <button class="btn btn_tag" style="background: orange;">
+              <a href="# " style="color: black" >#{{ tag.name}}</a>
+            </button>
+
+            <span style="float: right;">
+              <a
+                href="# "
+                onclick="window.open('http://www.facebook.com/sharer.php?u=http://simpleisbestt.herokuapp.com/{{post.slug}}','Facebook share', 'height=600, width=800')"
+                class="fa fa-faceook text-white"
+              >&#xf09a;</a>
+              <a
+                href="# "
+                onclick="window.open('https://twitter.com/share?url=http://simpleisbestt.herokuapp.com/{{post.slug}}&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons')"
+                target="_blank"
+                class="fa fa-twiter text-white"
+              >  &#xf081;</a>
+              <a
+                href="# "
+                onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&amp;url=http://simpleisbestt.herokuapp.com/{{blog.slug}}','Linkedin share', 'height=600, width=800')"
+                target="_blank"
+                class="fa fa-twiter text-white"
+              >&#xf0e1;</a>
+            </span>
+          </p>
+
+
+<div style="margin-top: 60px; background-color: #fe775a; padding: 30px;">
+        <h1>
+          <i class="fa " aria-hidden="true">&#xf2c6;</i> Subscribe To Our
+          Mailing List
+        </h1>
+        <h2>Receive updates from the Blog!</h2>
+
+       <p class="down_text">© 2019-2020 Simpleisbest®, All Rights Reserved. <br />
+675 Ponce De Leon Ave NE • Suite 5000 • Atlanta, GA 30308 USA <br />
+<a href="# " class="a" style="color: black">Contact Us </a> •  <a class="a" href="# " style="color: black">Terms of Use </a>   • <a class="a" href="# " style="color: black">Privacy Policy </a>  
+            
+          </div>
+        </form>
+      </div>
+
+        </div>
+
+      </div>
+
+        <a href="https://inback.herokuapp.com/email/tr-{{key}}.png"></a>
+        <img src="https://inback.herokuapp.com/email/tr-{{key}}.png" /> 
+
+        
+    </div>
+    
+  </body>
+</html>
