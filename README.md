@@ -48,9 +48,39 @@ RESTFUL API of instagram clone also Blog Api.
 
 ## Some Default urls:
 
-- **Registration** = localhost:8000/api/1/user/register/
-- **Login** = localhost:8000/api/1/oauth/ For login
-- **UpdateUser** = localhost:8000/api/user/updateDelete/
-- **ViewUser** localhost:8000/api/user/<slug_username>/
-- **BLOG api OR POST** localhost:8000/api/post/
-- localhost:8000/api/post/feed/
+## USER APP API
+
+- **Registration** = /api/1/user/register/
+- **Login** = /api/1/oauth/ For login
+- **UpdateUser** = /api/1/user/edit/me/
+- **All User List** = /api/1/user/list/ (Only Admin can see it)
+- **ViewUser Details** api/1/user/<slug_username>/
+- **User Blog list** api/1/user/blog/<slug_username>/
+- **User follow list** api/1/user/<slug_username>/follow/
+- **User get follower** api/1/user/<slug_username>/get-followers/
+- **User get following** api/1/user/<slug_username>/get-following/
+
+- **Foget password email** api/1/user/api/sendForgottenPasswordEmail/
+- **RESET PASSWORD** api/1/user/api/changeForgottenPassword/
+- **UPDATE PASSWORD** api/1/user/change/password/
+
+## BLOG APP API
+
+- **Blog send email preview** = /api/1/blog/email/preview/<int:pk>/
+- **Blog send email test** = /api/1/blog/email/test/<int:pk>/
+
+- **Creat blog** = /api/1/blog/create/
+- **See blog details** = /api/1/blog/create/<int:pk>/
+- **See blog list** = /api/1/blog/
+- **See blog liker** = /api/1/blog/<int:pk>/get-likers/
+- **Like blog** = /api/1/blog/like/<int:pk>/
+- **Add favourite blog** = /api/1/blog/favorite/<int:pk>/
+
+## INSTAGRAM POST APP API
+
+- **See all feed** = /api/1/post/feed/
+- **Comment on post** = /api/1/post/comment/<uuid:post_id>/
+- **Manage Comment on post** = /api/1/post/comment/<int:comment_id>/
+- **See like bview on post** = /api/1/post/like/<uuid:post_id>/
+- **See comment like bview on post** = /api/1/post/comment/like/<int:comment_id>/
+- **get post likers** = /api/1/post/<uuid:post_id>/get-likers/
