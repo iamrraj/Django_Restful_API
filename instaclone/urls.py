@@ -72,7 +72,6 @@ urlpatterns = [
     path("api/1/data/", include("data1.api.urls")),
     path("", include("blog.urls")),
     # Swagger Api endpoint
-    url(r"^face_detection/detect/$", "face.views.detect"),
     url(
         r"^swagger(?P<format>\.json|\.yaml)$",
         schema_view.without_ui(cache_timeout=0),

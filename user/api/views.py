@@ -26,7 +26,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Q
 import pyotp
 from twilio.rest import Client as TwilioClient
-from instagram1.response import error_json_response
+from instaclone.response import error_json_response
 from ..models import ForgottenPasswordToken,UserPasswordHistory
 from rest_framework import serializers
 from django.shortcuts import render, get_object_or_404

@@ -166,7 +166,7 @@ class Blog(models.Model):
     request = models.TextField(null=True, blank=True)
     sent_at = models.DateTimeField(_("sent at"), null=True, blank=True)
     key = models.CharField(
-        _("Key for email tracking"), max_length=255, default=secrets.token_hex(10)
+        _("Key for email tracking"), max_length=255, null=True, blank=True
     )
     deleted_at = models.DateTimeField(_("deleted at"), null=True, blank=True)
     objects = BlogManager()
@@ -197,7 +197,9 @@ class Blog(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
-        self.key = secrets.token_hex(15)
+        
+        if not self.key:
+            self.key = secrets.token_hex(16)
 
         if self.schedule is None:
             self.schedule = now()
