@@ -6,10 +6,16 @@ RESTFUL API of instagram clone also Blog Api.
 
 ## Specification:
 
-- registering and logging to user account
-- posting photos
+- Registering and logging to user account
+- Write a blog (follow author and see all author blog)
+- posting photos (follow user , send message, see followed user post)
 - commenting and liking photos
 - following system
+- Forger password , Change password
+- Emailing system
+- Storing user activity
+- Resume Genrate function
+- Store user password history in encrpted form(user will be not alllow to change or reset old password)
 - all CRUD operations on posts, comments, follows and likes with relevant permissions
 
 ## Technology :
